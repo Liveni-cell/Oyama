@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>3D Car Racing Game – Realistic Simulator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Standard Three.js Libraries (Works in all browsers & file:// protocol) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/DRACOLoader.js"></script>
+</head>
+
+<body>
+  <div id="webgl"></div>
+
+  <!-- Top HUD -->
+  <div class="hud-top">
+    <div class="hud-left">
+      <div class="badge">TIME TRIAL</div>
+      <div class="lap-info">
+        Lap: <span id="lapNum">0</span> |
+        Last: <span id="lastLap">--:--.--</span> |
+        Best: <span id="bestLap">--:--.--</span>
+      </div>
+    </div>
+    <div class="hud-right">
+      <button id="btnStart"><i class="fa-solid fa-play"></i> Start</button>
+      <button id="btnReset"><i class="fa-solid fa-rotate-left"></i> Reset</button>
+      <button id="btnCam"><i class="fa-solid fa-video"></i> Chase Cam</button>
+      <select id="vehicleSelect">
+        <option value="car1">Sports Car 1 (GLB)</option>
+        <option value="car2">Sports Car 2 (GLB)</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Speedo -->
+  <div class="speedo">
+    <div class="speedo-val" id="speedVal">0</div>
+    <div class="speedo-unit">KM/H</div>
+  </div>
+
+  <!-- Mobile controls -->
+  <div class="mobile-controls">
+    <div class="dpad">
+      <button class="dp-btn" id="btnLeft"><i class="fa-solid fa-angle-left"></i></button>
+      <button class="dp-btn" id="btnRight"><i class="fa-solid fa-angle-right"></i></button>
+    </div>
+    <div class="pedals">
+      <button class="pedal gas" id="btnGas">GAS</button>
+      <button class="pedal brake" id="btnBrake">BRAKE</button>
+    </div>
+  </div>
+
+  <!-- Application Scripts -->
+  <script src="track.js"></script>
+  <script src="lapManager.js"></script>
+  <script src="input.js"></script>
+  <script src="cars.js"></script>
+  <script src="vehicle.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>
